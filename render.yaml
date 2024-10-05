@@ -2,7 +2,7 @@
 services:
   - type: web                     # Type of service (web app or API)
     name: <project-name>           # Name of the project
-    env: <runtime-environment>     # Environment: node, python, go, ruby, etc.
+    env: <runtime-environment>     # Environment: node, python, go, etc.
     plan: standard                 # Plan type: free, standard, pro, etc.
     buildCommand: <build-command>  # Command to build the project (e.g., npm run build)
     startCommand: <start-command>  # Command to start the project (e.g., npm start)
@@ -10,17 +10,19 @@ services:
     envVars:                       # Define environment variables for the service
       - key: NODE_ENV              # Example: NODE_ENV for Node.js apps
         value: production
+      - key: MONGODB_URI           # MongoDB connection string (use Render's managed MongoDB or external service)
+        value: <mongodb-uri>
       - key: CUSTOM_ENV_VAR         # Placeholder for additional environment variables
         value: <env-var-value>
       - key: SECRET_API_KEY         # Example of a sensitive key, to be set via dashboard
         sync: false                 # Mark as false to prevent syncing secret values from the file
 
-# Optional: Define databases (PostgreSQL, Redis, etc.)
+# MongoDB: Define MongoDB as your database
 databases:
-  - type: postgres                 # Type of database
-    name: <database-name>          # Name of the database
-    plan: free                     # Plan type for the database: free, standard, etc.
-    region: oregon                 # Region where the database will be deployed
+  - type: mongodb                  # Specify MongoDB as the database type
+    name: <mongodb-instance-name>  # Name of the MongoDB instance
+    plan: free                     # Plan type for MongoDB: free, standard, etc.
+    region: oregon                 # Region where the MongoDB instance will be deployed
 
 # Optional: Define background jobs or workers
 jobs:
