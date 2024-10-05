@@ -1,40 +1,40 @@
-# Define your services (web, worker, etc.)
-services:
-  - type: web                     # Type of service (web app or API)
-    name: <project-name>           # Name of the project
-    env: <runtime-environment>     # Environment: node, python, go, ruby, etc.
-    plan: standard                 # Plan type: free, standard, pro, etc.
-    buildCommand: <build-command>  # Command to build the project (e.g., npm run build)
-    startCommand: <start-command>  # Command to start the project (e.g., npm start)
-    autoDeploy: true               # Automatically deploy on Git push
-    envVars:                       # Define environment variables for the service
-      - key: NODE_ENV              # Example: NODE_ENV for Node.js apps
-        value: production
-      - key: CUSTOM_ENV_VAR         # Placeholder for additional environment variables
-        value: <env-var-value>
-      - key: SECRET_API_KEY         # Example of a sensitive key, to be set via dashboard
-        sync: false                 # Mark as false to prevent syncing secret values from the file
+# # Define your services (web, worker, etc.)
+# services:
+#   - type: web                     # Type of service (web app or API)
+#     name: <project-name>           # Name of the project
+#     env: <runtime-environment>     # Environment: node, python, go, ruby, etc.
+#     plan: standard                 # Plan type: free, standard, pro, etc.
+#     buildCommand: <build-command>  # Command to build the project (e.g., npm run build)
+#     startCommand: <start-command>  # Command to start the project (e.g., npm start)
+#     autoDeploy: true               # Automatically deploy on Git push
+#     envVars:                       # Define environment variables for the service
+#       - key: NODE_ENV              # Example: NODE_ENV for Node.js apps
+#         value: production
+#       - key: CUSTOM_ENV_VAR         # Placeholder for additional environment variables
+#         value: <env-var-value>
+#       - key: SECRET_API_KEY         # Example of a sensitive key, to be set via dashboard
+#         sync: false                 # Mark as false to prevent syncing secret values from the file
 
-# Optional: Define databases (PostgreSQL, Redis, etc.)
-databases:
-  - type: postgres                 # Type of database
-    name: <database-name>          # Name of the database
-    plan: free                     # Plan type for the database: free, standard, etc.
-    region: oregon                 # Region where the database will be deployed
+# # Optional: Define databases (PostgreSQL, Redis, etc.)
+# databases:
+#   - type: postgres                 # Type of database
+#     name: <database-name>          # Name of the database
+#     plan: free                     # Plan type for the database: free, standard, etc.
+#     region: oregon                 # Region where the database will be deployed
 
-# Optional: Define background jobs or workers
-jobs:
-  - type: cron
-    name: <cron-job-name>          # Name of the scheduled job
-    schedule: '@daily'             # Cron schedule (e.g., '@daily', '@hourly', custom)
-    command: <command-to-run>      # Command to run (e.g., ./cleanup.sh)
+# # Optional: Define background jobs or workers
+# jobs:
+#   - type: cron
+#     name: <cron-job-name>          # Name of the scheduled job
+#     schedule: '@daily'             # Cron schedule (e.g., '@daily', '@hourly', custom)
+#     command: <command-to-run>      # Command to run (e.g., ./cleanup.sh)
 
-  - type: worker                   # Worker to handle background tasks
-    name: <worker-name>            # Name of the worker
-    startCommand: <worker-command> # Command to start the worker
+#   - type: worker                   # Worker to handle background tasks
+#     name: <worker-name>            # Name of the worker
+#     startCommand: <worker-command> # Command to start the worker
 
-# Optional: Additional resources (Redis, external services, etc.)
-additionalResources:
-  - type: redis
-    name: <redis-instance-name>    # Name of Redis instance
-    plan: free                     # Plan type for Redis (e.g., free, standard)
+# # Optional: Additional resources (Redis, external services, etc.)
+# additionalResources:
+#   - type: redis
+#     name: <redis-instance-name>    # Name of Redis instance
+#     plan: free                     # Plan type for Redis (e.g., free, standard)
