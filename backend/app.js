@@ -7,6 +7,12 @@ const categoryRouter = require("./routes/categoryRouter");
 const transactionRouter = require("./routes/transactionRouter");
 const app = express();
 
+app.use(cors({
+    origin : ["https://deploy-mern-1whq.vercel.app"],
+    methods : ["POST","GET"],
+    credintials : true
+});
+
 //!Connect to mongodb
 mongoose
   .connect("mongodb+srv://Mohanjee:Mohanjee888@cluster0.ub3hh2g.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
